@@ -1,33 +1,29 @@
-import { useState } from "react";
-
-const Form = () => {
-  const [itemName, setItemName] = useState("");
-  const [itemQuantity, setItemQuantity] = useState("1");
-
-  function handleAddItem(e) {
-    e.preventDefault();
-    console.log(itemName , itemQuantity);
-  }
-
+const Form = ({
+  itemName,
+  onSetItemName,
+  itemQuantity,
+  onSetItemQuantity,
+  onAddItem,
+}) => {
   return (
     <div
       className="bg-warning d-flex align-items-center justify-content-center"
       style={{ height: "10vh" }}
     >
-      <form className="d-flex" action="" onClick={(e) => handleAddItem(e)}>
+      <form className="d-flex" action="" onSubmit={(e) => onAddItem(e)}>
         <input
           className="form-control me-2"
           type="text"
           placeholder="item name"
           value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
+          onChange={(e) => onSetItemName(e.target.value)}
         />
         <select
           className="form-control form-control-sm me-2"
           name=""
           id=""
           value={itemQuantity}
-          onChange={(e) => setItemQuantity(e.target.value)}
+          onChange={(e) => onSetItemQuantity(e.target.value)}
         >
           <option value="1">1</option>
           <option value="2">2</option>
