@@ -22,6 +22,10 @@ function App() {
     setItems((items) => [...items, item]);
   }
 
+  function onDelete() {
+    console.log("delete");
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -48,7 +52,7 @@ function App() {
         onSetItemQuantity={setItemQuantity}
         onAddItem={handleSubmit}
       />
-      <List data={items} />
+      <List data={items} onDelete={onDelete} />
       <Stats />
     </>
   );
