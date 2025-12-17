@@ -52,7 +52,7 @@ function App() {
         onAddItem={handleSubmit}
       />
       <List data={items} onDelete={onDelete} onHandlePack={handlePack} />
-      <Stats />
+      <Stats items={items} />
     </>
   );
 }
