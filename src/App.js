@@ -5,14 +5,6 @@ import List from "./List";
 import Stats from "./Stats";
 import { useState } from "react";
 
-// const data = [
-//   { id: 1, item: "passport", quantity: 2, packed: true },
-//   { id: 2, item: "money", quantity: 1000, packed: true },
-//   { id: 3, item: "tickets", quantity: 4, packed: true },
-//   { id: 4, item: "shirts", quantity: 5, packed: false },
-//   { id: 5, item: "socks", quantity: 3, packed: false },
-// ];
-
 function App() {
   const [itemName, setItemName] = useState("");
   const [itemQuantity, setItemQuantity] = useState(1);
@@ -22,8 +14,8 @@ function App() {
     setItems((items) => [...items, item]);
   }
 
-  function onDelete() {
-    console.log("delete");
+  function onDelete(itemId) {
+    setItems((items) => items.filter((item) => item.id !== itemId));
   }
 
   function handleSubmit(e) {

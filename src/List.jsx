@@ -1,3 +1,5 @@
+import Item from "./Item";
+
 const List = ({ data, onDelete }) => {
   return (
     <main
@@ -5,21 +7,8 @@ const List = ({ data, onDelete }) => {
       style={{ height: "60vh" }}
     >
       <ul className="d-flex align-items-center justify-content-center">
-        {data.map((e) => {
-          return (
-            <li
-              className="d-flex align-items-center justify-content-center me-4"
-              style={{ listStyle: "none" }}
-              key={Math.random()}
-            >
-              <span onClick={onDelete} className="me-2" style={{ cursor: "pointer" }}>
-                ❌
-              </span>
-              <p className="mb-0">
-                {e.item} {e.quantity}
-              </p>
-            </li>
-          );
+        {data.map((item) => {
+          return <Item item={item} onDelete={onDelete}></Item>;
         })}
       </ul>
     </main>
