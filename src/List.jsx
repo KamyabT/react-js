@@ -1,6 +1,6 @@
 import Item from "./Item";
 
-const List = ({ data, onDelete }) => {
+const List = ({ data, onDelete, onHandlePack }) => {
   return (
     <main
       className="d-flex align-items-center justify-content-center"
@@ -8,7 +8,9 @@ const List = ({ data, onDelete }) => {
     >
       <ul className="d-flex align-items-center justify-content-center">
         {data.map((item) => {
-          return <Item item={item} onDelete={onDelete}></Item>;
+          return (
+            <Item item={item} onHandlePack={onHandlePack} onDelete={onDelete}></Item>
+          );
         })}
       </ul>
     </main>

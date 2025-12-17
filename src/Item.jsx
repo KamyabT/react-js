@@ -1,4 +1,4 @@
-const Item = ({ item, onDelete }) => {
+const Item = ({ item, onDelete, onHandlePack }) => {
   return (
     <li
       className="d-flex align-items-center justify-content-center me-4"
@@ -15,6 +15,12 @@ const Item = ({ item, onDelete }) => {
       <p className="mb-0">
         {item.item} {item.quantity}
       </p>
+      <input
+        type="checkbox"
+        className="ms-2"
+        onChange={() => onHandlePack(item.id)}
+        value={item.packed}
+      />
     </li>
   );
 };

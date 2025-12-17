@@ -25,13 +25,20 @@ function App() {
       item: itemName,
       quantity: itemQuantity,
       packed: false,
-      id: Date.now(),
+      id: Math.random(),
     };
 
     handleAddItem(newItem);
 
     setItemName("");
     setItemQuantity(1);
+  }
+
+  function handlePack(itemId) {
+    console.log("pack item");
+    setItems((items) =>
+      items.map((item) => (item.id === itemId ? { ...item, packed: !item.packed } : item))
+    );
   }
 
   return (
@@ -44,7 +51,7 @@ function App() {
         onSetItemQuantity={setItemQuantity}
         onAddItem={handleSubmit}
       />
-      <List data={items} onDelete={onDelete} />
+      <List data={items} onDelete={onDelete} onHandlePack={handlePack} />
       <Stats />
     </>
   );
