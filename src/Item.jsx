@@ -12,7 +12,7 @@ const Item = ({ item, onDelete, onHandlePack }) => {
       >
         ❌
       </span>
-      <p className="mb-0">
+      <p className={`mb-0 ${item.packed ? "text-decoration-line-through" : ""}`}>
         {item.item} {item.quantity}
       </p>
       <input
